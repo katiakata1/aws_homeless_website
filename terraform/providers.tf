@@ -5,12 +5,12 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "tfstate_bucket" {
-    bucket = var.tfstate_bucket_name
+    bucket = "homeless-webapp-terraform-tfstate"
 }
 
 terraform {
     backend "s3" {
-        bucket = var.tfstate_bucket_name
+        bucket = "homeless-webapp-terraform-tfstate"
         key = "tfstate"
         region = var.region
         encrypt = true
