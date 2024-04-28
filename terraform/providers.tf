@@ -5,12 +5,12 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "tfstate_bucket" {
-    bucket = var.TFSTATE_BUCKET_NAME
+    bucket = var.tfstate_bucket_name
 }
 
 terraform {
     backend "s3" {
-        bucket = var.TFSTATE_BUCKET_NAME
+        bucket = var.tfstate_bucket_name
         key = "tfstate"
         region = var.region
         encrypt = true
