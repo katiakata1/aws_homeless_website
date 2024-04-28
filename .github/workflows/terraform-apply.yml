@@ -20,7 +20,10 @@ jobs:
 
       - name: Terraform Init
         working-directory: terraform/
-        run: terraform init
+        run: |
+        echo "Access Key ID: ${{ secrets.AWS_ACCESS_KEY_ID }}"
+        echo "Secret Access Key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+        terraform init
         env:
             TF_VAR_aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
             TF_VAR_aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
